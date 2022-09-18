@@ -1,6 +1,22 @@
 from pygame import *
 
 
+class Enemy(Settings):
+    def __init__(self, x, y, w, h, speed, img, side):
+        Settings.__init__(self, x, y, w, h, speed, img)
+
+
+        self.side = side
+
+    def update(self):
+        global side
+
+        if self.side == "right":
+            self.rect.x -= self.speed
+        if self.side == "left":
+            self.rect.x += self.speed
+            
+            
 class Player(Settings):
 
     def r_l(self):
