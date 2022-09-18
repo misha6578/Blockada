@@ -1,4 +1,29 @@
 from pygame import *
+
+
+class Button():
+    def init(self, color, x, y w, h, text, fsize,txt_color):
+
+        self.width = w
+        self.height = h 
+        self.color = color
+
+        self.image = Surface([self.width, self.height])
+        self.image.fill((color))
+
+        self.rect = self.image.get_rect()
+        self.rect.x = x 
+        self.rect.y = y
+
+        self.fsize = fsize 
+        self.text = text
+        self.txt_color = font.Font('font/impact.ttf', frize).render(text, True, txt_color)
+
+    def draw(self, shift_x, shift_y):
+    win.blit(self.image, (self.rect.x, self.rect.y))
+    win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))
+    
+    
 class Settings(sprite.Sprite):
     def __init__(self, x, y, w, h, speed, img):
         super().__init__()
