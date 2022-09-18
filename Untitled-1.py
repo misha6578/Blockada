@@ -7,6 +7,8 @@ background = transform.scale(image.load("Fone.jpg"), (win_width, win_height))
 window.blit(background,(0,0))
 
 while game:
-
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
     display.update()
     clock.tick(FPS)  
