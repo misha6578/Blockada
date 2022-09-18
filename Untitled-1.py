@@ -16,7 +16,7 @@ while game:
     clock.tick(FPS) 
     
     
-    #тут класс герой
+   
     class Player(Settings):
 
     def r_l(self):
