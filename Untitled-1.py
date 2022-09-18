@@ -87,72 +87,6 @@ window.blit(background,(0,0))
 clock = time.Clock()
 game = True
 FPS = 60
-while game:
-    for e in event.get():
-        if e.type == QUIT:
-            game = False
-    display.update()
-    clock.tick(FPS) 
-    
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 hero = Player(300, 650, 50, 50, 5,hero_1)
 
@@ -178,3 +112,9 @@ stairs = []
 platforms = []
 
 items = sprite.Group()
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    display.update()
+    clock.tick(FPS)
