@@ -97,3 +97,84 @@ while game:
     
    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hero = Player(300, 650, 50, 50, 5,hero_1)
+
+en1 = Enemy(420, 480, 50, 50, 3, enemy_1, 'left')
+en2 = Enemy(230, 320, 50, 50, 3, enemy_1, 'left')
+
+door = Settings(1000, 580, 40, 120, 0, door_img)
+
+key1 = Settings(160, 350, 50, 20, 0, key_img)
+key2 = Settings(1500, 350, 50, 20, 0, key_img)
+
+portal = Settings(2700, 600, 100, 100, 0, port)
+
+chest = Settings(450, 130, 80, 80, 0, chest_close)
+
+camera = Camera(camera_configure, level_width, level_height)
+
+
+blocks_r = []
+blocks_l = []
+coins = []
+stairs = []
+platforms = []
+
+items = sprite.Group()
