@@ -1,4 +1,15 @@
 from pygame import *
+level = []
+class Settings(sprite.Sprite):
+    def __init__(self, x, y, w, h, speed, img):
+        super().__init__()
+        self.speed = speed
+        self.width = w
+        self.height = h
+        self.image = transform.scale(image.load(img),(self.width,self.height))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
 
 
 class Button():
@@ -24,16 +35,6 @@ class Button():
     win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))
     
     
-class Settings(sprite.Sprite):
-    def __init__(self, x, y, w, h, speed, img):
-        super().__init__()
-        self.speed = speed
-        self.width = w
-        self.height = h
-        self.image = transform.scale(image.load(img),(self.width,self.height))
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
 
 class Enemy(Settings):
     def __init__(self, x, y, w, h, speed, img, side):
