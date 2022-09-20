@@ -1,5 +1,17 @@
 from pygame import *
-level = []
+level = [
+        "                                       ",
+        "----------                    ---------",
+        "                  oo                   ",
+        "              o        o           o   ",
+        "-----         ----------          -----",
+        "  o                                    ",
+        "                                       ",
+        " ----------                  ----------",
+        "                                       ",
+        "             o                         ",
+        "                  o                    ",
+        "---------------------------------------"]
 class Settings(sprite.Sprite):
     def __init__(self, x, y, w, h, speed, img):
         super().__init__()
