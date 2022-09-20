@@ -26,6 +26,8 @@ class Settings(sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+    def reset(self): 
+        win.blit(self.image, (self.rect.x, self.rect.y))
 
 
 class Button():
