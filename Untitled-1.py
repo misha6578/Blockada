@@ -125,8 +125,17 @@ platforms = []
 
 items = sprite.Group()
 while game:
+    time.delay(15)
+    win.blit(bg, (0, 0))
+    keys = key.get_pressed()    
+    
     for e in event.get():
         if e.type == QUIT:
             game = False
+
+    en1.update()
+    en2.update()
+        
+    hero.r_1()
     display.update()
     clock.tick(FPS)
