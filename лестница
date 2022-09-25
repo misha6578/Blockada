@@ -1,0 +1,7 @@
+for s in stairs:
+    if sprite.collide_rect(hero, s):
+        hero.u_d()
+        if hero.rect.y <= (s.rect.y - 40):
+            hero.rect.y = s.rect.y 40
+        if hero.rect.y >= (s.rect.y + 130):
+            hero.rect.y = s.rect.y + 130
