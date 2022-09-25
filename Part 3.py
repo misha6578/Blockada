@@ -99,6 +99,43 @@ class Player(Settings):
         if keys[K_s]:
             self.rect += self.speed
 
+class Camera(object):
+
+    def __init__(self, camera_func, width, height):
+        self.camera_func = camera_func
+        self.state = Rect(0, 0, width, height)
+
+    def apply(self, target):
+        return target.rect.move(self.state.topleft)
+
+    def update(self, target):
+        self.state = self.camera_func(self.state, target.rect)
+
+
+    def camera_configure(camera, target_rect):
+
+        l, t, _, _ = target_rect
+        _, _, w, h = camera
+        l, t = -l + win_width / 2, -t + win_height / 2
+
+        l = min(0, l)
+        l = max(-(camera.width - win_width), l)
+        t = max(-(camera.height - win_height), t)
+        t = min(0, t)
+
+    return Rect(1, t, w, h)
+
+mixer.init()
+fire_s = mixer.Sound('sounds/fire.ogg')
+kick = mixer.Sound('sounds/kick.ogg')
+k_up = mixer.Sound('sounds/k_coll.ogg')
+c_coll = mixer.Sound('sounds/c_coll.ogg')
+d_o = mixer.Sound('sounds/lock.ogg')
+tp = mixer.Sound('sounds/teleport.ogg')
+click = mixer.Sound('sounds/click.ogg')
+cst_o = mixer.Sound('sounds/chest.ogg')
+            
+
 
 win_width = 1280
 win_height = 720
@@ -196,8 +233,6 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-    display.update()
-    clock.tick(FPS)
     
     #взаимодействие с сундуком,порталом,камера
     if sprite.collide_rect(hero, chest) and k_chest == False:
@@ -216,4 +251,28 @@ while game:
     camera.update(hero)
     for i in items:
         win.blit(i.image, camera.apply(i))
+    time.delay(15)
+    window.blit(background, (0, 0))
+    keys = key.get_pressed()
+
+    if sprite.collide_rect(hero, key1):
+        window.blit(e_tap, (500, 50))
+        if keys[K_e]:
+            k_chest = True
+            key1.rect.y = -100
+            items.remove(key1)
+            k_up.play()
+    if sprite.collide_rect(hero, key2):
+        window.blit(e_tap, (500, 50))
+        if keys[K_e]:
+            k_door = True
+            key2.rect.y = -100
+            items.remove(key2)
+            k_up.play()
+
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+            
     display.update()
+    clock.tick(FPS)            
