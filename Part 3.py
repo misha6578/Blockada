@@ -198,3 +198,22 @@ while game:
             game = False
     display.update()
     clock.tick(FPS)
+    
+    #взаимодействие с сундуком,порталом,камера
+    if sprite.collide_rect(hero, chest) and k_chest == False:
+        win.blit(k_need, (450, 50))
+    if sprite.collide_rect(hero, chest) and k_chest == True and c_count !=15:
+        win.blit(e_tap, (450, 50))
+        if keys[K_e]:
+            o_chest = True
+            c_count += 10
+            chest.image = transform.scale(image.load(chest_open),(chest.width, chest.height))
+            cst_o.play()
+            k_door = True
+    if sprite.collide_rect(hero, portal):
+        tp.play()
+        game = False
+    camera.update(hero)
+    for i in items:
+        win.blit(i.image, camera.apply(i))
+    display.update()
