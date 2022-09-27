@@ -301,6 +301,18 @@ while game:
     #поднимаемся по лестнице
     #Собираем ключи
     #открываем двери Миша
+    if sprite.collide_rect(hero, door) and k_door == False:
+        win.blit(k_need, (450, 50))
+        hero.rect.x = door.rect.x - 47
+
+    if sprite.collide_rect(hero, door) and  k_door == True:
+        hero.rect.x = door.rect.x - 47
+        win.blit(e_tap, (500, 50))
+        if keys[K_e]:
+            door.rect.x += 1500
+            d_o.play()
+            k_door = False
+
     # дописать
     display.update()
     clock.tick(FPS)            
