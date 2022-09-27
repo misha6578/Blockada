@@ -13,6 +13,9 @@ level = [
     "                  o                    ",
     "---------------------------------------"]
 
+level_width  = len(level[0])*40 # прораховуємо ширину рівня
+level_height = len(level)*40    # прораховуємо висоту рівня
+
 
 class Settings(sprite.Sprite):
     def __init__(self, x, y, w, h, speed, img):
