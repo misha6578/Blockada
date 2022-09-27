@@ -151,6 +151,7 @@ display.set_caption("Maze_defection")
 clock = time.Clock()
 game = True
 FPS = 60
+# добавляем текст
 
 hero_r = "images/sprite1_r.png"#1
 hero_l = "images/sprite1.png"#1
@@ -179,7 +180,7 @@ portal = Settings(2700, 600, 100, 100, 0, port)
 chest = Settings(450, 130, 80, 80, 0, chest_close)
 
 # camera = Camera(camera_configure, level_width, level_height)
-
+# создаем кнопки
 blocks_r = []
 blocks_l = []
 coins = []
@@ -232,10 +233,17 @@ for r in level:
     х = 0
 
 while game:
+    time.delay(15)
+    window.blit(background, (0, 0))
+    keys = key.get_pressed()
     for e in event.get():
         if e.type == QUIT:
             game = False
+    en1.update()
+    en2.update()
 
+    hero.r_l()
+    
     for s in stairs:
     if sprite.collide_rect(hero, s):
         hero.u_d()
@@ -261,9 +269,7 @@ while game:
     camera.update(hero)
     for i in items:
         win.blit(i.image, camera.apply(i))
-    time.delay(15)
-    window.blit(background, (0, 0))
-    keys = key.get_pressed()
+    
 
     if sprite.collide_rect(hero, key1):
         window.blit(e_tap, (500, 50))
@@ -280,9 +286,11 @@ while game:
             items.remove(key2)
             k_up.play()
 
-    for e in event.get():
-        if e.type == QUIT:
-            game = False
-            
+    # взаимодействие с обьектом бок
+    # калькулятор собранных монет
+    #поднимаемся по лестнице
+    #Собираем ключи
+    #открываем двери
+    # дописать
     display.update()
     clock.tick(FPS)            
