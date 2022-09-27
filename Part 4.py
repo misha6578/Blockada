@@ -289,15 +289,15 @@ while game:
     # взаимодействие с обьектом бок Артем
     # калькулятор собранных монет Нестеренко Влад
     coin_c = font2.render(':' + str(c_count), True, (255, 255, 255))
-win.bilt(transform.scale(image.load("images/coin.png"), (50,50)), (10, 10))
-win.bilt(coin_c, (55, 15))
+    win.bilt(transform.scale(image.load("images/coin.png"), (50,50)), (10, 10))
+    win.bilt(coin_c, (55, 15))
 
-for c in coins:
-    if sprite.collide_rect(hero, c):
-        c_coll.play()
-        c_count += 1
-        coins.remove(c)
-        items.remove(c)
+    for c in coins:
+        if sprite.collide_rect(hero, c):
+            c_coll.play()
+            c_count += 1
+            coins.remove(c)
+            items.remove(c)
     #поднимаемся по лестнице
     #Собираем ключи
     #открываем двери Миша
