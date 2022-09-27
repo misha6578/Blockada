@@ -208,7 +208,7 @@ for r in level:
             stairs.append(r2)
             items.add(r2)
 
-        if c == "":
+        if c == "o":
             r3 = Settings(x, y, 40, 40, 0, coin)
             coins.append(r3)
             items.add(r3)
